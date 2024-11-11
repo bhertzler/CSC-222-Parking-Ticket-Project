@@ -32,5 +32,8 @@
     <ClCompile Include="ParkingTicket.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="test-client-program.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -14,11 +14,18 @@ using namespace std;
 
 void ParkingTicket::print()
 {
-	cout << "*** PARKING TICKET ***" << endl;
-	cout << "Officer: " << officer.getName() << " | Badge Number: " << officer.getBadgeID() << endl;
-	cout << "Vehicle License Number: " << car.getLicense() << endl;
-	cout << "Make: " << car.getMake() << " | Model: " << car.getModel() << " | Color: " << car.getColor() << endl;
-	cout << "Meter Minutes: " << meter.getMinutes() << "| Minutes Parked: " << car.getMinutesParked() << endl;
-	cout << "Parking Fee: $" << officer.getFine();
+	if (officer.isViolation())
+	{
+		cout << "*** PARKING TICKET ***" << endl;
+		cout << "Officer: " << officer.getName() << " | Badge Number: " << officer.getBadgeID() << endl;
+		cout << "Vehicle License Number: " << car.getLicense() << endl;
+		cout << "Make: " << car.getMake() << " | Model: " << car.getModel() << " | Color: " << car.getColor() << endl;
+		cout << "Meter Minutes: " << meter.getMinutes() << "| Minutes Parked: " << car.getMinutesParked() << endl;
+		cout << "Parking Fee: $" << officer.getFine();
+	}
+	else
+	{
+		cout << "No Violation" << endl;
+	}
 
 }

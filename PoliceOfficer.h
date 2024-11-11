@@ -8,8 +8,8 @@
 
 #include "ParkedCar.h"
 #include "ParkingMeter.h"
-#include "ParkingTicket.h"
-#include <iostream>
+// #include "ParkingTicket.h"
+// #include <iostream>
 #include <string>
 using namespace std;
 
@@ -56,10 +56,17 @@ public:
 	int getOvertime() const { return car.getMinutesParked() - meter.getMinutes(); }
 	// Function to calculate and return the total number of minutes the car has been parked illegally.
 
-	int getFine() const { return initial_fine + (additional_fine * (getOvertime() / increment_rate)); }
+	double getFine() const { return initial_fine + (additional_fine * ((getOvertime() - 1) / increment_rate)); }
 	// Function to calculate and return the total fine that must be paid.
 
-	void writeTicket() { ParkingTicket ticket(car, meter, *this); ticket.print(); }
+	bool isViolation() const { return car.getMinutesParked() > meter.getMinutes(); }
+	// Function to check if the car is illegally parked.
+	// Postcondition: returns true if car is illegally parked, otherwise returns false
+
+/*
+	void initializeTicket() { ticket.setCar(car); ticket.setMeter(meter); ticket.setOfficer(*this); }
+
+	void writeTicket() { initializeTicket(); ticket.print(); }
 	// Function to generate a parking ticket object.
 	// Postcondition: Outputs the contents of the ticket to the console.
 
@@ -72,6 +79,7 @@ public:
 		else
 			cout << "No Violation" << endl;
 	}
+*/
 
 	PoliceOfficer(string n = "NAME", string id = "BADGE NUMBER", ParkedCar c = DEFAULT_CAR, ParkingMeter m = DEFAULT_METER) :
 		name(n), badgeNumber(id), car(c), meter(m) {}
@@ -86,6 +94,7 @@ private:
 	string badgeNumber;						// Variable to store the badge number of the officer					
 	ParkedCar car;							// Variable to store the car to be ticketed
 	ParkingMeter meter;						// Variable to store the parking meter.
+//	ParkingTicket ticket;					// Variable to store the parking ticket object.
 	double initial_fine = DEFAULT_FINE;				// Variable to store the fine for a parking violation
 	double additional_fine = DEFAULT_INCREMENT;		// Variable to store the increment for additional fines accrued based on parking time
 	int increment_rate = DEFAULT_RATE;				// Variable to store the default number of minutes until the fine increases

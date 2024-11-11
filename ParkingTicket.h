@@ -11,7 +11,6 @@
 #include "PoliceOfficer.h"
 #include <string>
 #include <iostream>
-using namespace std;
 
 // Global Constants
 const ParkedCar CAR_OBJECT;
@@ -35,7 +34,7 @@ public:
 	
 	void print();
 	// Function to generate the parking ticket.
-	// Postcondition: Outputs a parking ticket message to the console.
+	// Postcondition: Outputs a parking ticket message to the console if the car is illegally parked, otherwise outputs "No Violation".
 
 	ParkingTicket(ParkedCar c = CAR_OBJECT, ParkingMeter m = METER_OBJECT, PoliceOfficer o = OFFICER_OBJECT) : 
 		car(c), meter(m), officer(o) {}
