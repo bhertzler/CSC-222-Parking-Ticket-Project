@@ -28,7 +28,7 @@ public:
 	// Function to set the license plate number of the car as a string.
 	// Postcondition: licenseNumber = ln; default value "LICENSE"
 
-	void minutesParked(int mn) { minutes = mn; }
+	void setMinutesParked(int mn) { minutes = mn; }
 	// Function to set the number of minutes parked as an int.
 	// Postcondition: minutes = mn; default value 0
 
@@ -44,7 +44,7 @@ public:
 	string getLicense() const { return licenseNumber; }
 	// Function to return the license plate number of the car.
 
-	int getMinutes() const { return minutes; }
+	int getMinutesParked() const { return minutes; }
 	// Function to return the total number of minutes parked by the car.
 
 	ParkedCar(string mk = "MAKE", string ml = "MODEL", string co = "COLOR", string ln = "LICENSE", int mn = 0) : 

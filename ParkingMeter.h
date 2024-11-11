@@ -1,4 +1,4 @@
-// ParkingMeter.h, contains specification and implementation for the class ParkedCar
+// ParkingMeter.h, contains specification and implementation for the class ParkingMeter
 
 // Benjamin Hertzler
 // CSC 222
